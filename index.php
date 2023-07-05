@@ -1,6 +1,27 @@
 <?php
 
 
+    
+    function generatePasswordRandom() {
+
+        
+        $input= $_GET["password-lenght"];
+        $randomCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789@*?!/";
+        $password= substr($randomCharacters,0,$input);
+        $randomPassword = str_shuffle($password);
+        // if ($input>50) {
+        //     $randomPassword = 'Password troppo lunga, deve avere una lunghezza minore di 50 caratteri';
+            
+        // }elseif ($input<8) {
+        //     $randomPassword = 'Password è troppo corta, deve avere una lunghezza superiore agli 8 caratteri';
+            
+        // }
+    
+    
+        echo $randomPassword;
+    
+    }
+
 
 
 
@@ -17,11 +38,11 @@
 </head>
 <body class="bg-primary">
    
-    <div class="container">
+    <div class="container mb-3">
         <div class="row">
             <div class="col-12 text-center mt-5">
-                <h1>Strong Password Generator</h1>
-                <h2>Genera una password sicura</h2>
+                <h1 class="text-light">Strong Password Generator</h1>
+                <h2 class="text-light">Genera una password sicura</h2>
             </div>
             
         </div>
@@ -29,25 +50,29 @@
     <div class="container ">
         <div class="row justify-content-center">
             
-                <div class="col-6 py-3 bg-light ">
+                <div class="col-8 py-3 bg-light ">
                     <!-- form -->
                     <form action="index.php" method="GET">
                         <div class="col d-flex justify-content-between  ">
-                            <p>Lunghezza password</p>
+                            <p>Lunghezza password:</p>
                             <div class="col-5">
                                 <input type="text" name="password-lenght" id="">
+
                             </div>
+
+                           
+                            
                             
                         </div>
                         <div class="col d-flex justify-content-between  ">
                             <p>Consenti ripetizioni di 1 o più caratteri</p>
                             <div class="col-5">
-                                <input type="radio" name="" id="">
+                                <input type="radio" name="Si" id="">
                                 <label class="form-check-label" >
                                     Si
                                 </label><br>
 
-                                <input type="radio" name="" id="">
+                                <input type="radio" name="No" id="">
                                 <label class="form-check-label" >
                                     No
                                 </label><br>
@@ -56,15 +81,15 @@
                         <div class="col d-flex justify-content-end  ">
                            
                             <div class="col-5">
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" name="numeri" id="">
                                 <label class="form-check-label">
                                     Numeri
                                 </label><br>
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" name="simboli" id="">
                                 <label class="form-check-label">
                                     Simboli
                                 </label><br>
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" name="lettere" id="">
                                 <label class="form-check-label">
                                     Lettere
                                 </label>
@@ -80,6 +105,8 @@
                          
                     </form>
                     <!-- fine della form -->
+                    <h3>Password generata:</h3>
+                    <h5><?php echo generatePasswordRandom()?></h5>
                 </div>    
             </div>
             
