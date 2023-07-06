@@ -1,29 +1,51 @@
 <?php
 
 
-    
-    function generatePasswordRandom() {
+
+
+
+        function generatePasswordRandom($lenght) {
+
+            
+                // $input= $_GET["password_lenght"];
+                // $randomCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789@*?!/";
+                // $password= substr($randomCharacters,0,$input);
+                // $randomPassword = str_shuffle($password);
+                // if ($input>50) {
+                //     $randomPassword = 'Password troppo lunga, deve avere una lunghezza minore di 50 caratteri';
+                    
+                // }elseif ($input<8) {
+                //     $randomPassword = 'Password è troppo corta, deve avere una lunghezza superiore agli 8 caratteri';
+                    
+                // }
+                // echo $randomPassword;
+            
+            $randomCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789@*?!/";
+            $password= substr($randomCharacters,0,$lenght);
+            $randomPassword = str_shuffle($password);
+
+            if ($lenght>50) {
+
+                $randomPassword = 'Password troppo lunga, deve avere una lunghezza minore di 50 caratteri';
+                    
+            }elseif ($lenght<8) {
+
+                $randomPassword = 'Password è troppo corta, deve avere una lunghezza superiore agli 8 caratteri';  
+            }      
+
+            return $randomPassword;
+        
+        };
+
+        if (isset($_GET["password_lenght"])) {
+            # code...
+            $response = generatePasswordRandom($_GET["password_lenght"]);
+        }
 
         
-        $input= $_GET["password-lenght"];
-        $randomCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789@*?!/";
-        $password= substr($randomCharacters,0,$input);
-        $randomPassword = str_shuffle($password);
-        // if ($input>50) {
-        //     $randomPassword = 'Password troppo lunga, deve avere una lunghezza minore di 50 caratteri';
-            
-        // }elseif ($input<8) {
-        //     $randomPassword = 'Password è troppo corta, deve avere una lunghezza superiore agli 8 caratteri';
-            
-        // }
     
+
     
-        echo $randomPassword;
-    
-    }
-
-
-
 
 ?>
 
@@ -47,6 +69,23 @@
             
         </div>
     </div>
+        <div class="container my-2">
+            <div class="row justify-content-center">
+                
+                <div class="col-8 bg-success py-2">
+                    <h3 class="text-light">Password generata:</h3>
+                    <h5>
+                        <?php
+                            // echo generatePasswordRandom($_GET["password_lenght"])
+                            if (isset($_GET["password_lenght"])) {
+                            
+                                echo $response;
+                            }
+                        ?>
+                    </h5>
+                </div>
+            </div>        
+        </div>               
     <div class="container ">
         <div class="row justify-content-center">
             
@@ -56,13 +95,10 @@
                         <div class="col d-flex justify-content-between  ">
                             <p>Lunghezza password:</p>
                             <div class="col-5">
-                                <input type="text" name="password-lenght" id="">
+                                <input type="number" name="password_lenght" id="lenght">
 
                             </div>
-
-                           
-                            
-                            
+     
                         </div>
                         <div class="col d-flex justify-content-between  ">
                             <p>Consenti ripetizioni di 1 o più caratteri</p>
@@ -105,8 +141,7 @@
                          
                     </form>
                     <!-- fine della form -->
-                    <h3>Password generata:</h3>
-                    <h5><?php echo generatePasswordRandom()?></h5>
+                    
                 </div>    
             </div>
             
