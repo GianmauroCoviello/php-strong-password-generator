@@ -7,19 +7,6 @@
         function generatePasswordRandom($lenght) {
 
             
-                // $input= $_GET["password_lenght"];
-                // $randomCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789@*?!/";
-                // $password= substr($randomCharacters,0,$input);
-                // $randomPassword = str_shuffle($password);
-                // if ($input>50) {
-                //     $randomPassword = 'Password troppo lunga, deve avere una lunghezza minore di 50 caratteri';
-                    
-                // }elseif ($input<8) {
-                //     $randomPassword = 'Password è troppo corta, deve avere una lunghezza superiore agli 8 caratteri';
-                    
-                // }
-                // echo $randomPassword;
-            
             $randomCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789@*?!/";
             $password= substr($randomCharacters,0,$lenght);
             $randomPassword = str_shuffle($password);
@@ -100,45 +87,9 @@
                             </div>
      
                         </div>
-                        <div class="col d-flex justify-content-between  ">
-                            <p>Consenti ripetizioni di 1 o più caratteri</p>
-                            <div class="col-5">
-                                <input type="radio" name="Si" id="">
-                                <label class="form-check-label" >
-                                    Si
-                                </label><br>
-
-                                <input type="radio" name="No" id="">
-                                <label class="form-check-label" >
-                                    No
-                                </label><br>
-                            </div>
-                        </div>
-                        <div class="col d-flex justify-content-end  ">
+                       
                            
-                            <div class="col-5">
-                                <input type="checkbox" name="numeri" id="">
-                                <label class="form-check-label">
-                                    Numeri
-                                </label><br>
-                                <input type="checkbox" name="simboli" id="">
-                                <label class="form-check-label">
-                                    Simboli
-                                </label><br>
-                                <input type="checkbox" name="lettere" id="">
-                                <label class="form-check-label">
-                                    Lettere
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col d-flex py-2 ">
-                           
-                            <div class="col-5">
-                                <button class="btn btn-primary" type="submit">INVIA</button>
-                                <button class="btn btn-secondary" type="submit">ANNULLA</button>
-                            </div>
-                        </div>
-                         
+                        
                     </form>
                     <!-- fine della form -->
                     
