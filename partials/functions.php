@@ -22,14 +22,15 @@
 
         return $randomPassword;
         
-        };
+    
 
-        if (isset($_GET["password_lenght"])) {
-            # code...
-            $response = generatePasswordRandom($_GET["password_lenght"]);
-        }
+    }
+    
+    if (isset($_GET["password_lenght"])) {
+        # code...
+        $response = generatePasswordRandom($_GET["password_lenght"]);
+    }
 
-        
     
 
     

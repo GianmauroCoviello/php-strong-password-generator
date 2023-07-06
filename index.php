@@ -1,36 +1,7 @@
 <?php
 
-
-
-
-
-        function generatePasswordRandom($lenght) {
-
-            
-            $randomCharacters = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789@*?!/";
-            $password= substr($randomCharacters,0,$lenght);
-            $randomPassword = str_shuffle($password);
-
-            if ($lenght>50) {
-
-                $randomPassword = 'Password troppo lunga, deve avere una lunghezza minore di 50 caratteri';
-                    
-            }elseif ($lenght<8) {
-
-                $randomPassword = 'Password è troppo corta, deve avere una lunghezza superiore agli 8 caratteri';  
-            }      
-
-            return $randomPassword;
-        
-        };
-
-        if (isset($_GET["password_lenght"])) {
-            # code...
-            $response = generatePasswordRandom($_GET["password_lenght"]);
-        }
-
-        
-    
+// incluso il file functions che contiene la funzione
+include __DIR__.'/partials/functions.php'
 
     
 
@@ -63,7 +34,7 @@
                     <h3 class="text-light">Password generata:</h3>
                     <h5>
                         <?php
-                            // echo generatePasswordRandom($_GET["password_lenght"])
+                           
                             if (isset($_GET["password_lenght"])) {
                             
                                 echo $response;
