@@ -14,7 +14,7 @@
         $randomSymbols= "@*?!/";
 
         // variabile che concatenerà le variabili con i diversi tipi di caratteri
-        $randomString= $randomNumbers.$randomCharacters.$randomSymbols;
+        $randomString= $randomSymbols.$randomNumbers.$randomCharacters;
         // variabile che tramite la proprietà substr permette di inserire la lughezza della password da generare in base al numero inserito nell'input
         $password= substr($randomString,0,$lenght);
 
